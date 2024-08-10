@@ -76,4 +76,19 @@ public class UserDAO {
             return Optional.empty();
         }
     }
+
+    public void showAll() throws SQLException {
+        String sql = "SELECT * FROM users;";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            ResultSet result1 = preparedStatement.executeQuery();
+            while (result1.next()) {
+                System.out.printf(
+                        "id = %d, name = %s, phone = %s\n",
+                        result1.getLong("id"),
+                        result1.getString("name"),
+                        result1.getString("phone")
+                );
+            }
+        }
+    }
 }

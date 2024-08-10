@@ -60,6 +60,8 @@ public class Main {
             System.out.println(dao.find(user3.getId()));
             System.out.println(dao.find(Long.valueOf(3)));
 
+            dao.showAll();
+
 
 
 
